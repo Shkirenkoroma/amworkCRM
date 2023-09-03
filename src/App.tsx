@@ -1,13 +1,39 @@
-import './App.css'
+import { FC, useEffect, useState } from 'react'
+import Schedule from './schedule'
+import AmWork from './assets/Logo.png'
+import SuperCRM from './assets/superAmwork.png'
+import axios from 'axios'
+import * as Style from './App.styles.jsx'
 
-function App() {
+const App: FC = (): JSX.Element => {
+  const [arrayData, setDataFromApi] = useState<any>()
+  useEffect(() => {
+    getData()
+  }, [])
 
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/todos',
+      )
+      const data = response.data
+      setDataFromApi(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  console.log(arrayData)
   return (
-    <>
-      <div>
-        <h1>adadd</h1>
-        </div>
-    </>
+    <Style.Container>
+      <Style.Header>
+        <img src={AmWork} alt="Amwork logo for main page" />
+        <img src={SuperCRM} alt="SuperCRM logo for main page" />
+      </Style.Header>
+      <Style.ContainerSchedule>
+        <Schedule data={arrayData}/>
+      </Style.ContainerSchedule>
+    </Style.Container>
   )
 }
 
