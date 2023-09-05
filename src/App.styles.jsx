@@ -13,8 +13,7 @@ padding:0 40px;
 
 export const ContainerSchedule = styled.div`
 width:100%;
-max-width:700px;
-height:100px;
+max-width:263px;
 margin: 20px auto;
 border:1px solid red;
 `

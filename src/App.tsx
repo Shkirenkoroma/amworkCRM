@@ -10,7 +10,6 @@ const App: FC = (): JSX.Element => {
   useEffect(() => {
     getData()
   }, [])
-
   const getData = async () => {
     try {
       const response = await axios.get(
