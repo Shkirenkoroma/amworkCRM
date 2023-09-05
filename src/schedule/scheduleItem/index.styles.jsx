@@ -56,3 +56,20 @@ export const EndDate = styled.span`
 font-weight:600;
 color:#50B810
 `
+
+export const Description = styled.p`
+white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color:#555555;
+`
+export const FooterItem = styled.div`
+`
+export const SwitchButton = styled.div`
+`
+export const Button = styled.button`
+`
+export const PhotoItem = styled.div`
+`
+export const Image = styled.img`
+`

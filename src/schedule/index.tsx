@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { dateStart,   dateEnd } from '../utils'
+import { dateEnd, dateStart } from '../utils'
 import ScheduleItem from './scheduleItem'
 
 const Schedule: FC<any> = ({ data }): JSX.Element => {
@@ -8,8 +8,7 @@ const [listItem, setListItem] = useState(data)
   const handkeChangeList = (el: any) => {
    
     }
-    dateStart
-    dateEnd
+
 
   return (
     <div>

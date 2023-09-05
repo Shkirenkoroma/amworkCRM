@@ -22,7 +22,6 @@ const App: FC = (): JSX.Element => {
     }
   }
 
-  console.log(arrayData)
   return (
     <Style.Container>
       <Style.Header>

@@ -1,15 +1,17 @@
 import { FC, useState } from 'react'
 import * as Style from './index.styles'
-
-const ScheduleItem: FC<any> = ({ el, handleID, dateStart, dateEnd
+import { descriptionText } from '../../utils'
+const ScheduleItem: FC<any> = ({
+  el,
+  handleID,
+  dateStart,
+  dateEnd,
 }): JSX.Element => {
   const [choise, setChoise] = useState([])
 
   const changeChecked = () => {
     handleID(el.id)
   }
-
-
   return (
     <Style.ScheduleItem>
       <Style.ScheduleInnerContainerItem>
@@ -27,6 +29,16 @@ const ScheduleItem: FC<any> = ({ el, handleID, dateStart, dateEnd
           <Style.StartDate>{dateStart}</Style.StartDate>
           <Style.EndDate>{dateEnd}</Style.EndDate>
         </Style.DateItem>
+        <Style.Description>{descriptionText}</Style.Description>
+        <Style.FooterItem>
+          <Style.SwitchButton>
+            <Style.Button>Entity title</Style.Button>
+            <Style.Button>Front-end</Style.Button>
+          </Style.SwitchButton>
+          <Style.PhotoItem>
+            <Style.Image src="" alt="place for user photo" />
+          </Style.PhotoItem>
+        </Style.FooterItem>
       </Style.ScheduleInnerContainerItem>
     </Style.ScheduleItem>
   )
