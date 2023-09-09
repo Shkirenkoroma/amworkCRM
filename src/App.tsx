@@ -18,7 +18,6 @@ const App: FC = (): JSX.Element => {
         'https://jsonplaceholder.typicode.com/todos',
       )
       const data = response.data
-      console.log('data', data)
       setDataFromApi(data)
     
     } catch (error) {

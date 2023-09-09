@@ -9,6 +9,7 @@ align-items:center;
 gap:20px;
 padding:0 40px;
 `
+
 export const HeaderSchedule = styled.div`
 display:flex;
 justify-content:space-between;
