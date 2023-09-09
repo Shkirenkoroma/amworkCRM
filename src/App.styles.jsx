@@ -4,62 +4,63 @@ export const Container = styled.div`
 `
 
 export const Header = styled.header`
-display:flex;
-align-items:center;
-gap:20px;
-padding:0 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  gap: 20px;
 `
 
 export const HeaderSchedule = styled.div`
-display:flex;
-justify-content:space-between;
-padding:5px;
-align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
 `
 
 export const HeaderScheduleTitleName = styled.span`
-color:#50B810;
-font-weight:600;
+  font-weight: 600;
+  color: #50B810;
 `
 
 export const ButtonAddingTask = styled.button`
-height:25px;
-max-width:38px;
-width:100%;
-border:none;
-border-radius:4px;
-&:hover{
-  cursor:pointer;
+  width:100%;
+  max-width:38px;
+  height:25px;
+  border:none;
+  border-radius:4px;
+
+    &:hover{
+      cursor:pointer;
 }
 `
+
 export const PlusPictureButton = styled.img`
-
 `
+
 export const CountingGroup = styled.div`
-display:flex;
-max-width:80px;
-width:100%;
-
+  display:flex;
+  width:100%;
+  max-width:80px;
 `
+
 export const WindowCount = styled.div`
-max-width:26px;
-width:100%;
-height:18px;
-border-radius:5px;
-border:1px solid #7B8AAB;
-margin-left:5px;
-outline:none;
-color:#555555;
-font-weight:600;
-padding: 0 5px 6px 4px;
+  width:100%;
+  max-width:26px;
+  height:18px;
+  margin-left:5px;
+  padding: 0 5px 6px 4px;
+  border:1px solid #7B8AAB;
+  border-radius:5px;
+  font-weight:600;
+  color:#555555;
+  outline:none;
 `
 
 export const WindowCountNumber = styled.span`
-
 `
 
 export const ContainerSchedule = styled.div`
-width:100%;
-max-width:263px;
-margin: 20px auto;
+  width:100%;
+  max-width:263px;
+  margin: 20px auto;
 `

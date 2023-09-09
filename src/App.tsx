@@ -12,6 +12,7 @@ const App: FC = (): JSX.Element => {
   useEffect(() => {
     getData()
   }, [])
+  
   const getData = async () => {
     try {
       const response = await axios.get(
@@ -19,7 +20,6 @@ const App: FC = (): JSX.Element => {
       )
       const data = response.data
       setDataFromApi(data)
-    
     } catch (error) {
       console.log(error)
     }
@@ -36,9 +36,13 @@ const App: FC = (): JSX.Element => {
           <Style.HeaderScheduleTitleName>Today</Style.HeaderScheduleTitleName>
           <Style.CountingGroup>
             <Style.ButtonAddingTask>
-              <Style.PlusPictureButton src={plus} alt="icon of adding button"/>
+              <Style.PlusPictureButton src={plus} alt="icon of adding button" />
             </Style.ButtonAddingTask>
-            <Style.WindowCount><Style.WindowCountNumber>{arrayData?.length}</Style.WindowCountNumber></Style.WindowCount>
+            <Style.WindowCount>
+              <Style.WindowCountNumber>
+                {arrayData?.length}
+              </Style.WindowCountNumber>
+            </Style.WindowCount>
           </Style.CountingGroup>
         </Style.HeaderSchedule>
         <Schedule data={arrayData} />
