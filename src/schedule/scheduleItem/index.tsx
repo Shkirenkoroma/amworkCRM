@@ -1,25 +1,28 @@
 import { FC, useState } from 'react'
 import * as Style from './index.styles'
 import { descriptionText } from '../../utils'
+import photo from '../../assets/Img.png';
+
 const ScheduleItem: FC<any> = ({
   el,
-  handleID,
   dateStart,
   dateEnd,
 }): JSX.Element => {
-  const [choise, setChoise] = useState([])
+  const [choise, setChoise] = useState(el.completed)
 
   const changeChecked = () => {
-    handleID(el.id)
+    setChoise(!choise)
   }
+  
   return (
     <Style.ScheduleItem>
       <Style.ScheduleInnerContainerItem>
+        <Style.ScheduleInnerContainerContentItem>
         <Style.TitleItem>
           <Style.LabelItem>
             <Style.Input
               type="checkbox"
-              checked={el.completed}
+              checked={choise}
               onChange={() => changeChecked()}
             />
             <Style.TitleText>{el.title}</Style.TitleText>
@@ -31,14 +34,15 @@ const ScheduleItem: FC<any> = ({
         </Style.DateItem>
         <Style.Description>{descriptionText}</Style.Description>
         <Style.FooterItem>
-          <Style.SwitchButton>
-            <Style.Button>Entity title</Style.Button>
-            <Style.Button>Front-end</Style.Button>
-          </Style.SwitchButton>
+          <Style.GroupButtons>
+            <Style.Button><Style.ButtonText>Entity title</Style.ButtonText></Style.Button>
+            <Style.Button><Style.ButtonText>Front-end</Style.ButtonText></Style.Button>
+          </Style.GroupButtons>
           <Style.PhotoItem>
-            <Style.Image src="" alt="place for user photo" />
+            <Style.Image src={photo} alt="place for user photo" />
           </Style.PhotoItem>
         </Style.FooterItem>
+        </Style.ScheduleInnerContainerContentItem>
       </Style.ScheduleInnerContainerItem>
     </Style.ScheduleItem>
   )

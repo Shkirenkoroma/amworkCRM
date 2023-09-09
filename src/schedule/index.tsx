@@ -1,23 +1,21 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { dateEnd, dateStart } from '../utils'
 import ScheduleItem from './scheduleItem'
+import * as Style from './index.styles.jsx'
 
 const Schedule: FC<any> = ({ data }): JSX.Element => {
-const [listItem, setListItem] = useState(data)
-
-  const handkeChangeList = (el: any) => {
-   
-    }
-
-
+  
   return (
-    <div>
+    <Style.ContainerSchedule>
       {data?.map((el: any) => (
-        <ScheduleItem el={el} key={el.id} handleID={handkeChangeList}    dateStart={dateStart} dateEnd={dateEnd
-        }
+        <ScheduleItem
+          el={el}
+          key={el.id}
+          dateStart={dateStart}
+          dateEnd={dateEnd}
         />
       ))}
-    </div>
+    </Style.ContainerSchedule>
   )
 }
 
