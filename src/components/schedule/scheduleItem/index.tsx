@@ -1,34 +1,27 @@
-import { FC, useState } from 'react'
-import { descriptionText } from '../../utils'
+import { FC, useState } from 'react';
+import { faker } from '@faker-js/faker';
 import dateFormat from "dateformat";
-import photo from '../../assets/Img.png'
-import * as Style from './index.styles'
-
-interface IPropsScheduleItemData {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
-}
+import photo from 'assets/Img.png';
+import { IPropsScheduleItemData } from './index.types';
+import * as Style from './index.styles';
 
 interface IPropsScheduleItem {
   dataItem: IPropsScheduleItemData
-  index:number
-}
+};
 
 const ScheduleItem: FC<IPropsScheduleItem> = ({
-  dataItem,
-  index
+  dataItem
 }): JSX.Element => {
-  const [choise, setChoise] = useState(dataItem.completed)
-  const  startDateBeforeTransform= new Date(index*(10**13))
-  const startDate = dateFormat(startDateBeforeTransform,  "mmm dd, hh:MM TT")
-  const endDateBeforeTransform = new Date((index+1)*(10**13))
-  const endDate = dateFormat(endDateBeforeTransform,  "mmm dd, hh:MM TT")
+  const [choise, setChoise] = useState(dataItem.completed);
+  const  startDateBeforeTransform= new Date(dataItem.id*(10**13));
+  const startDate = dateFormat(startDateBeforeTransform,  "mmm dd, hh:MM TT");
+  const endDateBeforeTransform = new Date((dataItem.id+1)*(10**13));
+  const endDate = dateFormat(endDateBeforeTransform,  "mmm dd, hh:MM TT");
+  const descriptionText = faker.lorem.paragraphs(5);
 
   const changeChecked = () => {
     setChoise(!choise)
-  }
+  };
 
   return (
     <Style.ScheduleItem>
@@ -66,6 +59,6 @@ const ScheduleItem: FC<IPropsScheduleItem> = ({
       </Style.ScheduleInnerContainerItem>
     </Style.ScheduleItem>
   )
-}
+};
 
-export default ScheduleItem
+export default ScheduleItem;

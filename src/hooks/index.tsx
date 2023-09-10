@@ -1,26 +1,20 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-
-export interface Item {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
-}
+import { useEffect, useState } from 'react';
+import { IPropsScheduleItemData } from 'components/schedule/scheduleItem/index.types';
+import axios from 'axios';
 
 interface State<T> {
   loading: boolean
   data: T[]
   error: Error | null
-}
+};
 
-export const useFetch = <T extends Item>(
+export const useFetch = <T extends IPropsScheduleItemData>(
   url: string,
   _page: number,
 ): State<T> => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState(null)
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true)
@@ -37,10 +31,11 @@ export const useFetch = <T extends Item>(
         .catch(setError)
         .finally(() => setLoading(false))
     }, 1000)
-  }, [url, _page])
+  }, [url, _page]);
+
   return {
     loading,
     data,
     error,
   }
-}
+};
