@@ -6,7 +6,7 @@ import plus from './assets/add.png'
 import * as Style from './App.styles.jsx'
 
 const App: FC = (): JSX.Element => {
-  const [countTask, setCountTask] = useState<number>()
+  const [countTask, setCountTask] = useState<[]>()
 
   return (
     <Style.Container>

@@ -12,7 +12,7 @@ interface IPropsScheduleItem {
 }
 
 interface IPropsSchedule {
-  setCountTask: () => void
+  setCountTask: (data) => void
 }
 
 const Schedule: FC<IPropsSchedule> = ({ setCountTask }): JSX.Element => {
@@ -21,7 +21,7 @@ const Schedule: FC<IPropsSchedule> = ({ setCountTask }): JSX.Element => {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
-  
+
   const { data: resData, loading } = useFetch(
     'https://jsonplaceholder.typicode.com/todos',
     page,
