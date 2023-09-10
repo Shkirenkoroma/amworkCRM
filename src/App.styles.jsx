@@ -57,6 +57,8 @@ export const WindowCount = styled.div`
 `
 
 export const WindowCountNumber = styled.span`
+  display: block;
+  text-align: center;
 `
 
 export const ContainerSchedule = styled.div`

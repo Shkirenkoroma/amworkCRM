@@ -1,29 +1,12 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import Schedule from './schedule'
 import AmWork from './assets/Logo.png'
 import SuperCRM from './assets/superAmwork.png'
-import axios from 'axios'
 import plus from './assets/add.png'
 import * as Style from './App.styles.jsx'
 
 const App: FC = (): JSX.Element => {
-  const [arrayData, setDataFromApi] = useState<any>()
-
-  useEffect(() => {
-    getData()
-  }, [])
-  
-  const getData = async () => {
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/todos',
-      )
-      const data = response.data
-      setDataFromApi(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const [countTask, setCountTask] = useState<number>()
 
   return (
     <Style.Container>
@@ -40,12 +23,12 @@ const App: FC = (): JSX.Element => {
             </Style.ButtonAddingTask>
             <Style.WindowCount>
               <Style.WindowCountNumber>
-                {arrayData?.length}
+                {countTask?.length}
               </Style.WindowCountNumber>
             </Style.WindowCount>
           </Style.CountingGroup>
         </Style.HeaderSchedule>
-        <Schedule data={arrayData} />
+        <Schedule setCountTask={setCountTask}/>
       </Style.ContainerSchedule>
     </Style.Container>
   )

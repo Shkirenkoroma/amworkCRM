@@ -6,3 +6,11 @@ export const ContainerSchedule = styled.div`
   overflow-y: scroll;
   scrollbar-width: thin;
 `
+
+export const Loading = styled.p`
+  padding:0 10px;
+  color:#000;
+`
+
+export const BorderBlock = styled.p`
+`

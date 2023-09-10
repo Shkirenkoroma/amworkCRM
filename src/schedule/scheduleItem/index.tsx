@@ -12,15 +12,15 @@ interface IPropsScheduleItemData {
 }
 
 interface IPropsScheduleItem {
-  el: IPropsScheduleItemData
+  dataItem: IPropsScheduleItemData
   index:number
 }
 
 const ScheduleItem: FC<IPropsScheduleItem> = ({
-  el,
+  dataItem,
   index
 }): JSX.Element => {
-  const [choise, setChoise] = useState(el.completed)
+  const [choise, setChoise] = useState(dataItem.completed)
   const  startDateBeforeTransform= new Date(index*(10**13))
   const startDate = dateFormat(startDateBeforeTransform,  "mmm dd, hh:MM TT")
   const endDateBeforeTransform = new Date((index+1)*(10**13))
@@ -41,7 +41,7 @@ const ScheduleItem: FC<IPropsScheduleItem> = ({
                 checked={choise}
                 onChange={() => changeChecked()}
               />
-              <Style.TitleText>{el.title}</Style.TitleText>
+              <Style.TitleText>{dataItem.title}</Style.TitleText>
             </Style.LabelItem>
           </Style.TitleItem>
           <Style.DateItem>
