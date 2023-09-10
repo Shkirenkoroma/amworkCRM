@@ -72,7 +72,7 @@ Try adjusting maxTime or maxRetries parameters for faker.helpers.unique().`)}fun
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  max-width: 250px;
+  max-width: 246px;
   height: 158px;
   background-color: #ffffff;
 `,ztu=_.div`
