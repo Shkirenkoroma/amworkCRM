@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 import { faker } from '@faker-js/faker';
 import dateFormat from "dateformat";
 import photo from 'assets/Img.png';
@@ -12,15 +12,15 @@ interface IPropsScheduleItem {
 const ScheduleItem: FC<IPropsScheduleItem> = ({
   dataItem
 }): JSX.Element => {
-  const [choise, setChoise] = useState(dataItem.completed);
+  const [complete, setComplete] = useState(dataItem.completed);
   const  startDateBeforeTransform= new Date(dataItem.id*(10**13));
   const startDate = dateFormat(startDateBeforeTransform,  "mmm dd, hh:MM TT");
   const endDateBeforeTransform = new Date((dataItem.id+1)*(10**13));
   const endDate = dateFormat(endDateBeforeTransform,  "mmm dd, hh:MM TT");
-  const descriptionText = faker.lorem.paragraphs(5);
+  const descriptionText = useMemo(()=>{ return faker.lorem.paragraphs(5)}, []);
 
-  const changeChecked = () => {
-    setChoise(!choise)
+ const changeChecked = () => {
+    setComplete( !complete )
   };
 
   return (
@@ -31,7 +31,7 @@ const ScheduleItem: FC<IPropsScheduleItem> = ({
             <Style.LabelItem>
               <Style.Input
                 type="checkbox"
-                checked={choise}
+                checked={complete}
                 onChange={() => changeChecked()}
               />
               <Style.TitleText>{dataItem.title}</Style.TitleText>
